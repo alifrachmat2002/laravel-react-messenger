@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->longText('message')->nullable();
             $table->foreignId('sender_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('receiver_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('group_id')->constrained('groups')->onDelete('cascade');
-            $table->foreignId('conversation_id')->constrained('conversations')->onDelete('cascade');
+            $table->foreignId('receiver_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->foreignId('group_id')->nullable()->constrained('groups')->onDelete('cascade');
+            $table->foreignId('conversation_id')->nullable()->constrained('conversations')->onDelete('cascade');
             $table->timestamps();
         });
 
